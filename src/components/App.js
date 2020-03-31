@@ -6,6 +6,7 @@ import ItemsList from "./ItemsList";
 import ItemSorts from "./ItemSorts";
 import useItems from "../hooks/useItems";
 import calcDeltaE from "../utils/calcDeltaE";
+import DeltaETable from "./DeltaETable";
 
 function App() {
   const [palette1Items, setPalette1Items] = useItems({
@@ -65,6 +66,11 @@ function App() {
           <div className="mt-3">
             <ItemInputGroup items={palette1Items} setItems={setPalette1Items} />
           </div>
+          {showDeltaE && palette1Items.length > 1 && (
+            <div className="mt-3">
+              <DeltaETable items={palette1Items} />
+            </div>
+          )}
         </Col>
         <Col xs={2}>
           {showDeltaE && (
@@ -122,6 +128,11 @@ function App() {
           <div className="mt-3">
             <ItemInputGroup items={palette2Items} setItems={setPalette2Items} />
           </div>
+          {showDeltaE && palette2Items.length > 1 && (
+            <div className="mt-4">
+              <DeltaETable items={palette2Items} />
+            </div>
+          )}
         </Col>
       </Row>
     </Container>
