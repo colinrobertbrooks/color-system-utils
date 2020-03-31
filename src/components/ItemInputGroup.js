@@ -9,29 +9,34 @@ const ItemInputGroup = ({ items, setItems }) => {
   );
   const btnIsDisabled = !inputValIsValidItem || inputValIsDuplicateItem;
 
+  const handleSubmit = () => {
+    setItems([
+      ...items,
+      {
+        id: inputVal,
+        hex: inputVal
+      }
+    ]);
+    setInputVal("");
+  };
+
   return (
     <>
       <InputGroup>
         <Input
           placeholder="add hex item..."
           value={inputVal}
-          onChange={e => setInputVal(e.target.value)}
+          onChange={event => setInputVal(event.target.value)}
+          onKeyPress={event =>
+            event.key === "Enter" && !btnIsDisabled && handleSubmit()
+          }
         />
         <InputGroupAddon addonType="append">
           <Button
             color={btnIsDisabled ? "secondary" : "success"}
             outline
             disabled={btnIsDisabled}
-            onClick={() => {
-              setItems([
-                ...items,
-                {
-                  id: inputVal,
-                  hex: inputVal
-                }
-              ]);
-              setInputVal("");
-            }}
+            onClick={handleSubmit}
           >
             Add
           </Button>
