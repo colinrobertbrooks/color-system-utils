@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d2b7a3a73568a1e85965e226a3468a20",
+    "revision": "7d51071d68a40e40d212d4db7e45293d",
     "url": "/color-system-utils/index.html"
   },
   {
-    "revision": "9994a823ed9f67ea9e11",
+    "revision": "1b700444d40a225da0b6",
     "url": "/color-system-utils/static/css/2.de424728.chunk.css"
   },
   {
-    "revision": "1c897ca8fed6185a9ee4",
+    "revision": "9a41a245bce9ef3244ce",
     "url": "/color-system-utils/static/css/main.7c1a2188.chunk.css"
   },
   {
-    "revision": "9994a823ed9f67ea9e11",
-    "url": "/color-system-utils/static/js/2.25677304.chunk.js"
+    "revision": "1b700444d40a225da0b6",
+    "url": "/color-system-utils/static/js/2.987e1ba4.chunk.js"
   },
   {
     "revision": "3453b8997016469371284a28c0e873e2",
-    "url": "/color-system-utils/static/js/2.25677304.chunk.js.LICENSE.txt"
+    "url": "/color-system-utils/static/js/2.987e1ba4.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1c897ca8fed6185a9ee4",
-    "url": "/color-system-utils/static/js/main.acd1f655.chunk.js"
+    "revision": "9a41a245bce9ef3244ce",
+    "url": "/color-system-utils/static/js/main.4da25225.chunk.js"
   },
   {
     "revision": "1053a3c6518511857696",
