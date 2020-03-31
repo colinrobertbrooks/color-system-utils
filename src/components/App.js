@@ -48,14 +48,20 @@ function App() {
           <h2>Palette 2</h2>
         </Col>
         <Col xs={5}>
-          <ItemsList
-            items={palette1Items}
-            setItems={setPalette1Items}
-            showInverses={showInverses}
-          />
-          <div className="mt-3">
-            <ItemSorts items={palette1Items} setItems={setPalette1Items} />
-          </div>
+          {palette1Items.length > 0 ? (
+            <>
+              <ItemsList
+                items={palette1Items}
+                setItems={setPalette1Items}
+                showInverses={showInverses}
+              />
+              <div className="mt-3">
+                <ItemSorts items={palette1Items} setItems={setPalette1Items} />
+              </div>
+            </>
+          ) : (
+            <p className="text-muted">No hex items.</p>
+          )}
           <div className="mt-3">
             <ItemInputGroup items={palette1Items} setItems={setPalette1Items} />
           </div>
@@ -99,14 +105,20 @@ function App() {
           )}
         </Col>
         <Col xs={5}>
-          <ItemsList
-            items={palette2Items}
-            setItems={setPalette2Items}
-            showInverses={showInverses}
-          />
-          <div className="mt-3">
-            <ItemSorts items={palette2Items} setItems={setPalette2Items} />
-          </div>
+          {palette2Items.length > 0 ? (
+            <>
+              <ItemsList
+                items={palette2Items}
+                setItems={setPalette2Items}
+                showInverses={showInverses}
+              />
+              <div className="mt-3">
+                <ItemSorts items={palette2Items} setItems={setPalette2Items} />
+              </div>
+            </>
+          ) : (
+            <p className="text-muted">No hex items.</p>
+          )}
           <div className="mt-3">
             <ItemInputGroup items={palette2Items} setItems={setPalette2Items} />
           </div>

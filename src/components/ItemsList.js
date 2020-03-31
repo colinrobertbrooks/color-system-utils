@@ -40,71 +40,65 @@ const ItemInputGroup = ({ items, setItems, showInverses }) => {
   };
 
   return (
-    <>
-      {items.length ? (
-        <DragDropContext onDragEnd={onDragEnd}>
-          <Droppable droppableId="droppable">
-            {(provided /* , snapshot */) => (
-              <div
-                {...provided.droppableProps}
-                ref={provided.innerRef}
-                style={getListStyle(/* snapshot.isDraggingOver */)}
-              >
-                {items.map((item, index) => (
-                  <Draggable key={item} draggableId={item} index={index}>
-                    {(provided, snapshot) => (
+    <DragDropContext onDragEnd={onDragEnd}>
+      <Droppable droppableId="droppable">
+        {(provided /* , snapshot */) => (
+          <div
+            {...provided.droppableProps}
+            ref={provided.innerRef}
+            style={getListStyle(/* snapshot.isDraggingOver */)}
+          >
+            {items.map((item, index) => (
+              <Draggable key={item} draggableId={item} index={index}>
+                {(provided, snapshot) => (
+                  <div
+                    ref={provided.innerRef}
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                    style={getItemStyle(
+                      item,
+                      snapshot.isDragging,
+                      provided.draggableProps.style
+                    )}
+                  >
+                    {item}
+                    <button
+                      className="close text-muted"
+                      title="Remove hex item"
+                      onClick={() => {
+                        setItems(
+                          items.filter(filterItem => filterItem !== item)
+                        );
+                      }}
+                    >
+                      <span aria-hidden="true">x</span>
+                    </button>
+                    {showInverses && (
                       <div
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                        style={getItemStyle(
-                          item,
-                          snapshot.isDragging,
-                          provided.draggableProps.style
-                        )}
+                        className="small"
+                        title={`Inverse of ${item}`}
+                        style={{
+                          background: invert(item),
+                          borderRadius: 4,
+                          color: item,
+                          marginTop: 2,
+                          padding: 4,
+                          textAlign: "center",
+                          width: 60
+                        }}
                       >
-                        {item}
-                        <button
-                          className="close text-muted"
-                          title="Remove hex item"
-                          onClick={() => {
-                            setItems(
-                              items.filter(filterItem => filterItem !== item)
-                            );
-                          }}
-                        >
-                          <span aria-hidden="true">x</span>
-                        </button>
-                        {showInverses && (
-                          <div
-                            className="small"
-                            title={`Inverse of ${item}`}
-                            style={{
-                              background: invert(item),
-                              borderRadius: 4,
-                              color: item,
-                              marginTop: 2,
-                              padding: 4,
-                              textAlign: "center",
-                              width: 60
-                            }}
-                          >
-                            {invert(item)}
-                          </div>
-                        )}
+                        {invert(item)}
                       </div>
                     )}
-                  </Draggable>
-                ))}
-                {provided.placeholder}
-              </div>
-            )}
-          </Droppable>
-        </DragDropContext>
-      ) : (
-        <p className="text-muted text-center">No hex items...</p>
-      )}
-    </>
+                  </div>
+                )}
+              </Draggable>
+            ))}
+            {provided.placeholder}
+          </div>
+        )}
+      </Droppable>
+    </DragDropContext>
   );
 };
 
