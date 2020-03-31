@@ -3,7 +3,7 @@ import { InputGroup, Input, InputGroupAddon, Button } from "reactstrap";
 
 const ItemInputGroup = ({ items, setItems }) => {
   const [inputVal, setInputVal] = useState("");
-  const inputValIsValidItem = /^#[0-9A-F]{6}$/i.test(inputVal);
+  const inputValIsValidItem = /^#[0-9A-F]{6}$/i.test(inputVal); // hex (e.g. #000000)
   const inputValIsDuplicateItem = Boolean(
     items.find(({ hex }) => hex === inputVal)
   );

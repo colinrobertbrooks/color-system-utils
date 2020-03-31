@@ -1,5 +1,6 @@
 import React from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { invert } from "polished";
 
 const reorder = (list, startIndex, endIndex) => {
   const result = Array.from(list);
@@ -12,8 +13,9 @@ const getItemStyle = (hex, isDragging, draggableStyle) => ({
   background: hex,
   border: "1px solid #ced4da",
   boxShadow: isDragging ? "0 8px 6px -6px #ddd" : undefined,
-  borderRadius: "4px",
-  marginBottom: "8px",
+  color: invert(hex),
+  borderRadius: 4,
+  marginBottom: 8,
   padding: 16,
   userSelect: "none",
   ...draggableStyle
@@ -21,12 +23,12 @@ const getItemStyle = (hex, isDragging, draggableStyle) => ({
 
 const getListStyle = (/* isDraggingOver */) => ({
   border: "1px solid #ced4da",
-  borderRadius: "4px",
+  borderRadius: 4,
   padding: "15px 10px 5px 10px",
   width: "100%"
 });
 
-const ItemInputGroup = ({ items, setItems }) => {
+const ItemInputGroup = ({ items, setItems, showInverses }) => {
   const onDragEnd = result => {
     if (!result.destination) return;
     const nextItems = reorder(
@@ -73,6 +75,23 @@ const ItemInputGroup = ({ items, setItems }) => {
                         >
                           <span aria-hidden="true">x</span>
                         </button>
+                        {showInverses && (
+                          <div
+                            className="small"
+                            title={`Inverse of ${item}`}
+                            style={{
+                              background: invert(item),
+                              borderRadius: 4,
+                              color: item,
+                              marginTop: 2,
+                              padding: 4,
+                              textAlign: "center",
+                              width: 60
+                            }}
+                          >
+                            {invert(item)}
+                          </div>
+                        )}
                       </div>
                     )}
                   </Draggable>
