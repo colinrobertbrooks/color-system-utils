@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.css"],"names":[],"mappings":"AAAA,KACE,eAAgB,CAChB,kBAAmB,CACnB,eACF","file":"main.7c1a2188.chunk.css","sourcesContent":["body {\n  margin-top: 20px;\n  margin-bottom: 40px;\n  min-width: 320px;\n}\n"]}
