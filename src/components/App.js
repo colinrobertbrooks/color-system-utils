@@ -43,10 +43,16 @@ function App() {
         <Col xs={3} />
         <Col xs={5}>
           <h2>Palette 1</h2>
+          <div className="mt-2 mb-3">
+            <ItemInputGroup items={palette1Items} setItems={setPalette1Items} />
+          </div>
         </Col>
         <Col xs={2} />
         <Col xs={5}>
           <h2>Palette 2</h2>
+          <div className="mt-2 mb-3">
+            <ItemInputGroup items={palette2Items} setItems={setPalette2Items} />
+          </div>
         </Col>
         <Col xs={5}>
           {palette1Items.length > 0 ? (
@@ -56,20 +62,17 @@ function App() {
                 setItems={setPalette1Items}
                 showInverses={showInverses}
               />
-              <div className="mt-3">
+              {showDeltaE && palette1Items.length > 1 && (
+                <div className="mt-3">
+                  <DeltaETable items={palette1Items} />
+                </div>
+              )}
+              <div className="mt-4">
                 <ItemSorts items={palette1Items} setItems={setPalette1Items} />
               </div>
             </>
           ) : (
             <p className="text-muted">No hex items.</p>
-          )}
-          <div className="mt-3">
-            <ItemInputGroup items={palette1Items} setItems={setPalette1Items} />
-          </div>
-          {showDeltaE && palette1Items.length > 1 && (
-            <div className="mt-3">
-              <DeltaETable items={palette1Items} />
-            </div>
           )}
         </Col>
         <Col xs={2}>
@@ -118,20 +121,17 @@ function App() {
                 setItems={setPalette2Items}
                 showInverses={showInverses}
               />
-              <div className="mt-3">
+              {showDeltaE && palette2Items.length > 1 && (
+                <div className="mt-4">
+                  <DeltaETable items={palette2Items} />
+                </div>
+              )}
+              <div className="mt-4">
                 <ItemSorts items={palette2Items} setItems={setPalette2Items} />
               </div>
             </>
           ) : (
             <p className="text-muted">No hex items.</p>
-          )}
-          <div className="mt-3">
-            <ItemInputGroup items={palette2Items} setItems={setPalette2Items} />
-          </div>
-          {showDeltaE && palette2Items.length > 1 && (
-            <div className="mt-4">
-              <DeltaETable items={palette2Items} />
-            </div>
           )}
         </Col>
       </Row>
