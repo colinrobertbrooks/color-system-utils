@@ -49,29 +49,25 @@ const ItemInputGroup = ({ items, setItems }) => {
                 style={getListStyle(/* snapshot.isDraggingOver */)}
               >
                 {items.map((item, index) => (
-                  <Draggable
-                    key={item.hex}
-                    draggableId={item.hex}
-                    index={index}
-                  >
+                  <Draggable key={item} draggableId={item} index={index}>
                     {(provided, snapshot) => (
                       <div
                         ref={provided.innerRef}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
                         style={getItemStyle(
-                          item.hex,
+                          item,
                           snapshot.isDragging,
                           provided.draggableProps.style
                         )}
                       >
-                        {item.hex}
+                        {item}
                         <button
                           className="close text-muted"
                           title="Remove hex item"
                           onClick={() => {
                             setItems(
-                              items.filter(({ hex }) => hex !== item.hex)
+                              items.filter(filterItem => filterItem !== item)
                             );
                           }}
                         >

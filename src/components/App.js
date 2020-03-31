@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "reactstrap";
 import ItemInputGroup from "./ItemInputGroup";
 import ItemsList from "./ItemsList";
+import ItemSorts from "./ItemSorts";
 import useItems from "../hooks/useItems";
 
 function App() {
@@ -23,11 +24,17 @@ function App() {
           <div className="mt-3">
             <ItemInputGroup items={palette1Items} setItems={setPalette1Items} />
           </div>
+          <div className="mt-3">
+            <ItemSorts items={palette1Items} setItems={setPalette1Items} />
+          </div>
         </Col>
         <Col xs={6}>
           <ItemsList items={palette2Items} setItems={setPalette2Items} />
           <div className="mt-3">
             <ItemInputGroup items={palette2Items} setItems={setPalette2Items} />
+          </div>
+          <div className="mt-3">
+            <ItemSorts items={palette2Items} setItems={setPalette2Items} />
           </div>
         </Col>
       </Row>

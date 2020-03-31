@@ -10,13 +10,7 @@ const ItemInputGroup = ({ items, setItems }) => {
   const btnIsDisabled = !inputValIsValidItem || inputValIsDuplicateItem;
 
   const handleSubmit = () => {
-    setItems([
-      ...items,
-      {
-        id: inputVal,
-        hex: inputVal
-      }
-    ]);
+    setItems([...items, inputVal]);
     setInputVal("");
   };
 
