@@ -1,20 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Container, Row, Col } from "reactstrap";
 import ItemInputGroup from "./ItemInputGroup";
 import ItemsList from "./ItemsList";
-
-const LOCAL_STORAGE_KEY = "COLORS_1";
+import useItems from "../hooks/useItems";
 
 function App() {
-  const [items, setItems] = useState(() => {
-    const persistedItems = window.localStorage.getItem(LOCAL_STORAGE_KEY);
-    if (persistedItems) return JSON.parse(persistedItems);
-    return [];
-  });
-
-  useEffect(() => {
-    window.localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(items));
-  }, [items]);
+  const [items, setItems] = useItems("COLORS_1");
 
   return (
     <Container>
