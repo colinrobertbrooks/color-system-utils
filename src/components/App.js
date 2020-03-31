@@ -45,7 +45,7 @@ function App() {
         </Col>
         <Col xs={2} />
         <Col xs={5}>
-          <h2>Palette 1</h2>
+          <h2>Palette 2</h2>
         </Col>
         <Col xs={5}>
           <ItemsList
